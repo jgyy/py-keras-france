@@ -18,5 +18,7 @@ dependencies:
   - setuptools
   - twisted
   - pip:
+      - playsound
+      - simpleaudio
       - tensorflow-macos
       - tensorflow-metal
