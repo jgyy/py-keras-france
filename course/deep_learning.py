@@ -64,7 +64,7 @@ def main():
     model.compile(
         optimizers.Adam(learning_rate=0.05), "binary_crossentropy", metrics=["accuracy"]
     )
-    model.fit(x_train, y_train, epochs=100)
+    model.fit(x_train, y_train, epochs=100, verbose=2)
     model.evaluate(x_test, y_test)
     y_train_pred = argmax(x_train, axis=1)
     y_test_pred = argmax(x_test, axis=1)
@@ -78,7 +78,6 @@ def main():
 
     dataf = DataFrame(read_csv(path("iris.csv")))
     pairplot(dataf, hue="species")
-    print(dataf.head())
     x_data = dataf.drop("species", axis=1)
     print(x_data.head())
     target_names = dataf["species"].unique()
@@ -102,10 +101,8 @@ def main():
     model.fit(x_train, y_train, epochs=20, validation_split=0.1)
     y_pred = model.predict(x_test)
     print(y_pred[:5])
-    y_test_class = argmax(y_test, axis=1)
-    y_pred_class = argmax(y_pred, axis=1)
-    print(classification_report(y_test_class, y_pred_class))
-    print(confusion_matrix(y_test_class, y_pred_class))
+    print(classification_report(argmax(y_test, axis=1), argmax(y_pred, axis=1)))
+    print(confusion_matrix(argmax(y_test, axis=1), argmax(y_pred, axis=1)))
 
 
 if __name__ == "__main__":
