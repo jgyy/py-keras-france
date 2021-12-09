@@ -3,15 +3,14 @@ Deep Learning Intro
 """
 from os import getcwd
 from os.path import join
-from numpy import linspace, meshgrid, argmax, c_
+from numpy import argmax
 from pandas import DataFrame, Series, read_csv
 from seaborn import pairplot, heatmap
-from matplotlib.pyplot import show, plot, legend, figure, contourf
+from matplotlib.pyplot import show
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.svm import SVC
 from sklearn.naive_bayes import GaussianNB
 from sklearn.preprocessing import StandardScaler
-from sklearn.datasets import make_moons
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 from tensorflow.keras import models, layers, optimizers, utils
