@@ -62,9 +62,7 @@ def main():
     y_data = dataf["class"].values
     model = RandomForestClassifier()
     print(cross_val_score(model, x_data, y_data))
-    x_train, x_test, y_train, y_test = train_test_split(
-        x_data, y_data, test_size=0.3, random_state=42
-    )
+    x_train, x_test, y_train, y_test = train_test_split(x_data, y_data, test_size=0.3)
     backend.clear_session()
     model = models.Sequential()
     model.add(layers.Dense(1, input_shape=(4,), activation="sigmoid"))
