@@ -32,6 +32,15 @@ def main():
     print(y_train_cat[0])
     print(y_train_cat.shape)
     print(y_test_cat.shape)
+
+    images(x_train, y_train, x_test, y_test)
+
+def images(x_train, y_train, x_test, y_test):
+    """
+    fully connected on images function
+    """
+    y_train_cat = utils.to_categorical(y_train)
+    y_test_cat = utils.to_categorical(y_test)
     backend.clear_session()
     model = models.Sequential()
     model.add(layers.Dense(512, input_dim=28 * 28, activation="relu"))
@@ -52,6 +61,14 @@ def main():
     xlabel("Epochs")
     test_accuracy = model.evaluate(x_test, y_test_cat)[1]
     print(test_accuracy)
+
+    math(x_train, x_test, y_train_cat, y_test_cat)
+
+
+def math(x_train, x_test, y_train_cat, y_test_cat):
+    """
+    tensor math function
+    """
     a_tensor = randint(10, size=(2, 3, 4, 5))
     b_tensor = randint(10, size=(2, 3))
     print(a_tensor)
@@ -78,6 +95,14 @@ def main():
     print(b_tensor.shape)
     print(tensordot(a_tensor, b_tensor, axes=([0, 1], [0, 1])))
     print(tensordot(a_tensor, b_tensor, axes=([0], [0])).shape)
+
+    conv(x_train, x_test, y_train_cat, y_test_cat)
+
+
+def conv(x_train, x_test, y_train_cat, y_test_cat):
+    """
+    1D convolution function
+    """
     a_array = array([0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0], dtype="float32")
     b_array = array([-1, 1], dtype="float32")
     c_array = convolve(a_array, b_array)
@@ -95,6 +120,14 @@ def main():
     imshow(h_kernel, cmap="gray")
     res = convolve2d(img, h_kernel)
     imshow(res, cmap="gray")
+
+    convolution_nn(x_train, x_test, y_train_cat, y_test_cat, img)
+
+
+def convolution_nn(x_train, x_test, y_train_cat, y_test_cat, img):
+    """
+    convolution neural networks function
+    """
     print(img.shape)
     figure(figsize=(5, 5))
     imshow(img, cmap="gray")
