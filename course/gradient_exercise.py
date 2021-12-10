@@ -1,5 +1,5 @@
 """
-Deep Learning Intro
+Gradient Descent Exercise
 """
 from os import getcwd, system
 from os.path import join
