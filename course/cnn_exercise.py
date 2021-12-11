@@ -2,7 +2,7 @@
 Convolutional Neural Networks Exercises
 """
 from tensorflow.keras import datasets, utils, models, layers, backend
-from matplotlib.pyplot import show, imshow
+from matplotlib.pyplot import show, imshow, figure
 
 
 def main():
@@ -34,6 +34,7 @@ def main():
     model.evaluate(x_test, y_test_cat)
     (x_train, y_train), (x_test, y_test) = datasets.cifar10.load_data()
     print(x_train.shape)
+    figure()
     imshow(x_train[1])
     x_train = x_train.astype("float32") / 255.0
     x_test = x_test.astype("float32") / 255.0
