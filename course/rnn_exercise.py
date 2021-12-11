@@ -5,12 +5,11 @@ from os import getcwd
 from os.path import join
 from pandas import Timestamp, DataFrame, read_csv, to_datetime
 from pandas.tseries.offsets import MonthEnd
-from tensorflow.keras import callbacks, models, layers, backend, datasets, utils
+from tensorflow.keras import models, layers, backend, datasets, utils
 from matplotlib.pyplot import show, plot
 from sklearn.preprocessing import MinMaxScaler
 
 path = lambda x: join(getcwd(), "data", x)
-early_stop = callbacks.EarlyStopping(monitor="loss", patience=1)
 
 
 def main():
